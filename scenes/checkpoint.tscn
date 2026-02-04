@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://dxrnll45si164"]
+
+[node name="checkpoint" type="Area2D" unique_id=459263571]
