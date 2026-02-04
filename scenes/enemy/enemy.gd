@@ -18,6 +18,8 @@ func _process(delta: float) -> void:
 	move_and_slide()
 	change_anim()
 	flip()
+	
+
 func move_to_player():
 	if playerBody:
 		var direction = (playerBody.global_position - global_position).normalized()

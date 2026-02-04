@@ -4,16 +4,17 @@ extends CharacterBody2D
 @export var jump_force: float = -200
 @onready var marker_2d: Marker2D = $Marker2D
 @onready var shoot_coldown: Timer = $shoot_coldown
+ 
 
-#instancias
-
-#falata mexer com as flechas esta tudo bugado ainda
 
 
 var gravity: float = 980
 var is_attacking: bool = false
+var is_tacking_damage: bool = false
 enum States {IDLE, WALKING, JUMPING, FALLING, HIT, ATTACKING}
 var state: States = States.IDLE
+var health: int = 3
+
 
 func _ready() -> void:
 	shoot_coldown.stop()
@@ -53,11 +54,14 @@ func attack():
 		if shoot_coldown.is_stopped():
 			arrow_instanciate()
 
-
 func change_state():
+	if is_tacking_damage:
+		state = States.HIT
+		return
 	if is_attacking:
 		state = States.ATTACKING
 		return
+		
 	
 	if is_on_floor():
 		if abs(velocity.x) > 0:
@@ -84,10 +88,19 @@ func change_animation():
 			anim = "fall"
 		States.ATTACKING:
 			anim = "attack"
+		States.HIT:
+			anim = "hit"
 			
 	if animation_player.current_animation != anim:
 		animation_player.play(anim)
 
+func take_damage(damage: int):
+	health -= damage
+	is_tacking_damage = true
+	print(health)
+	if health < 0: 
+		get_tree().reload_current_scene()
+	
 func flip_player():
 	if velocity.x < 0:
 		$Sprite2D.flip_h = true
@@ -95,7 +108,6 @@ func flip_player():
 	elif velocity.x > 0:
 		$Sprite2D.flip_h = false
 		marker_2d.position = Vector2(16,9)
-		
 
 func arrow_instanciate():
 	var arrow = preload("uid://dqkjg72iyi2gf").instantiate()
@@ -111,3 +123,5 @@ func arrow_instanciate():
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "attack":
 		is_attacking = false
+	if anim_name == "hit":
+		is_tacking_damage = false

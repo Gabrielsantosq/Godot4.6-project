@@ -107,7 +107,6 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_uf5tr"]
 resource_name = "hit"
-length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -292,7 +291,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_0owmy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0owmy"]
-size = Vector2(14, 22)
+size = Vector2(13, 20)
 
 [node name="player" type="CharacterBody2D" unique_id=1172587264 groups=["player"]]
 script = ExtResource("1_8afob")
@@ -300,7 +299,9 @@ jump_force = -400.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1359779902]
 position = Vector2(0, 1)
-texture = ExtResource("7_fm80t")
+texture = ExtResource("2_0owmy")
+hframes = 4
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1651563640]
 position = Vector2(1, 7)
@@ -321,10 +322,9 @@ wait_time = 0.5
 one_shot = true
 
 [node name="hurt_box" type="Area2D" parent="." unique_id=1868141078 groups=["hurt_box_player"]]
-position = Vector2(1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_box" unique_id=126692969]
-position = Vector2(0, 7)
+position = Vector2(0.5, 7)
 shape = SubResource("RectangleShape2D_0owmy")
 debug_color = Color(0.95147854, 2.5027991e-06, 0.5658839, 0.41960785)
 

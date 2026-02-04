@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dxinfstwlhh7a" path="res://scenes/enemy/enemy.gd" id="1_gl05p"]
 [ext_resource type="Texture2D" uid="uid://bwp5rw5m30e8s" path="res://enemy_assets/3 - Skeleton/Limping_Movement (32 x 32).png" id="1_tjssy"]
 [ext_resource type="Texture2D" uid="uid://5xyd0xph1srl" path="res://enemy_assets/3 - Skeleton/Inactive (32 x 32).png" id="4_gl05p"]
+[ext_resource type="PackedScene" uid="uid://cve1uldldc1bh" path="res://scenes/hit_box.tscn" id="6_cwlon"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3pup"]
 size = Vector2(16, 23)
@@ -220,6 +221,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tjssy"]
 size = Vector2(200, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbhyu"]
+size = Vector2(18, 25)
+
 [node name="enemy" type="CharacterBody2D" unique_id=22923009]
 script = ExtResource("1_gl05p")
 
@@ -245,6 +249,13 @@ shape = SubResource("RectangleShape2D_tjssy")
 
 [node name="Timer" type="Timer" parent="." unique_id=575534072]
 one_shot = true
+
+[node name="hit_box" parent="." unique_id=2005878714 instance=ExtResource("6_cwlon")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hit_box" unique_id=788377708]
+position = Vector2(3, 4.5)
+shape = SubResource("RectangleShape2D_nbhyu")
+debug_color = Color(0.96168846, 1.540184e-06, 0.51167804, 0.41960785)
 
 [connection signal="body_entered" from="range" to="." method="_on_range_body_entered"]
 [connection signal="body_exited" from="range" to="." method="_on_range_body_exited"]

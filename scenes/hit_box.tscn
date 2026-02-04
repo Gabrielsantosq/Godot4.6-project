@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cve1uldldc1bh"]
+
+[ext_resource type="Script" uid="uid://dkbwl171lerr5" path="res://scenes/hit_box.gd" id="1_ido3m"]
+
+[node name="hit_box" type="Area2D" unique_id=2005878714 groups=["hit_box"]]
+script = ExtResource("1_ido3m")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
