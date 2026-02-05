@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 signal reload_scene
 
-
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export var speed: float = 100
 @export var jump_force: float = -200
@@ -55,6 +54,9 @@ func movement():
 	velocity.x = direction * speed
 	
 func jumping():
+	if is_realoding:
+		return
+		
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = jump_force
 

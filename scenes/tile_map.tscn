@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8k380wmj0r1b"]
+[gd_scene format=3 uid="uid://b8k380wmj0r1b"]
 
 [ext_resource type="Texture2D" uid="uid://bf5bntldnb2hu" path="res://Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_jx7lj"]
 [ext_resource type="Texture2D" uid="uid://cnahqsgxbwmoh" path="res://Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Grassland_entities (16 x 16).png" id="2_dohrl"]
@@ -363,5 +363,5 @@ sources/0 = SubResource("TileSetAtlasSource_kvphj")
 sources/1 = SubResource("TileSetAtlasSource_5ie0g")
 sources/2 = SubResource("TileSetAtlasSource_ac4p3")
 
-[node name="TileMap" type="TileMapLayer"]
+[node name="TileMap" type="TileMapLayer" unique_id=1724968030]
 tile_set = SubResource("TileSet_wupxj")

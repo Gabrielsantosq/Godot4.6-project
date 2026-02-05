@@ -4,17 +4,25 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var playerBody: CharacterBody2D
+
 var speed: float = 30
 var gravity: float = 980
-var is_atacking: bool = false
+
 var is_dead: bool = false
-var is_reload: bool = false
+var is_attacking: bool = false
+var is_take_damage: bool = false
+
+var max_health: int = 4
+var health: int 
+
 
 var state: States = States.INACTIVE
 
 
 enum States {INACTIVE,IDLE,WALK }
 
+func _ready() -> void:
+	health = max_health
 
 
 func _process(delta: float) -> void:
@@ -64,15 +72,23 @@ func change_anim():
 			
 	if animation_player.current_animation != anim:
 		animation_player.play(anim)
-		
-		
+
+func take_damage_enemy(damage: int):
+	health -= damage
+	if health <= 0:
+		is_dead = true
+		await 5
+		queue_free()
+
+
+
 func _on_range_body_entered(body: Node2D):
 	if body.is_in_group("player"):
 		playerBody = body
 		state = States.IDLE
 		timer.start()
-		
-		
+
+
 func _on_range_body_exited(body: Node2D):
 	if body.is_in_group("player"):
 		playerBody = null
