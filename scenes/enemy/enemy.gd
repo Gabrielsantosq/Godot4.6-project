@@ -6,9 +6,15 @@ extends CharacterBody2D
 var playerBody: CharacterBody2D
 var speed: float = 30
 var gravity: float = 980
+var is_atacking: bool = false
+var is_dead: bool = false
+var is_reload: bool = false
+
+var state: States = States.INACTIVE
+
 
 enum States {INACTIVE,IDLE,WALK }
-var state: States = States.INACTIVE
+
 
 
 func _process(delta: float) -> void:
