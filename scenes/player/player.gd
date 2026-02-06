@@ -128,6 +128,8 @@ func change_animation():
 func take_damage(damage: int):
 	health -= damage
 	is_tacking_damage = true
+	$CollisionShape2D.disabled = true
+	print($CollisionShape2D.disabled)
 	print(health)
 	if health < 0: 
 		emit_signal("reload_scene")

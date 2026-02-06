@@ -10,10 +10,6 @@
 [node name="Level1" type="Node2D" unique_id=61020778]
 script = ExtResource("1_3sk1a")
 
-[node name="Camera2D2" type="Camera2D" parent="." unique_id=608066633]
-position = Vector2(145, 105)
-zoom = Vector2(0.5, 0.5)
-
 [node name="Node2D2" parent="." unique_id=251779508 instance=ExtResource("4_kx6l7")]
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1191682755]
