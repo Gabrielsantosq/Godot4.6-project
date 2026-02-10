@@ -9,27 +9,25 @@ var speed: float = 30
 var gravity: float = 980
 
 var is_dead: bool = false
-var inactive: bool = false
-var active: bool = false
-var walking: bool = false
 var is_attacking: bool = false
 var is_take_damage: bool = false
 
-var max_health: int = 4
+var lock_animation: bool = false
+
+var max_health: int = 6
 var health: int 
 
 
 var state: States = States.INACTIVE
 
 
-enum States {INACTIVE,IDLE,WALK,TAKEDAMAGE, DEAD}
+enum States {INACTIVE,ACTIVATED,WALK,TAKEDAMAGE, DEAD}
 
 func _ready() -> void:
 	health = max_health
 
 
-func _process(delta: float) -> void:
-	
+func _physics_process(delta: float) -> void:
 	gravity_force(delta)
 	move_to_player()
 	change_state()
@@ -39,51 +37,54 @@ func _process(delta: float) -> void:
 	
 
 func move_to_player():
-	if playerBody:
+	if is_dead:
+		velocity = Vector2(0,0)
+		return
+		
+	if playerBody and state == States.WALK:
 		var direction = (playerBody.global_position - global_position).normalized()
 		velocity.x = direction.x * speed
-		
 	else:
 		velocity.x = 0
-		inactive = true 
 
 func gravity_force(delta):
 	if !is_on_floor():
 		velocity.y += gravity * delta
 	else:
-		if velocity.y < 0:
+		if velocity.y > 0:
 			velocity.y = 0
+
 
 func change_state():
 	if is_dead:
 		state = States.DEAD
 		return
-		
+
 	if is_take_damage:
-		state =  States.TAKEDAMAGE
+		state = States.TAKEDAMAGE
 		return
-		
-	if inactive:
+
+	if playerBody == null:
 		state = States.INACTIVE
 		return
 		
-	if active:
-		state = States.IDLE
+	if state == States.ACTIVATED:
 		return
 		
-	if walking:
-		state = States.WALK
+	state = States.WALK
+
+func change_anim():
+	if lock_animation:
 		return
 
 
-func change_anim():
 	var anim = ""
 	
 	match state:
 		States.INACTIVE:
 			anim = "inactive"
-		States.IDLE:
-			anim = "idle"
+		States.ACTIVATED:
+			anim = "activated"
 		States.WALK:
 			anim = "walk"
 		States.DEAD:
@@ -93,8 +94,13 @@ func change_anim():
 			
 	if animation_player.current_animation != anim:
 		animation_player.play(anim)
-
+	if anim in ["hurt", "dead"]:
+		lock_animation = true
+			
 func take_damage_enemy(damage: int):
+	if is_dead or is_take_damage:
+		return
+	
 	is_take_damage = true
 	health -= damage
 	if health <= 0:
@@ -104,24 +110,21 @@ func take_damage_enemy(damage: int):
 
 func dead():
 	$CollisionShape2D.disabled = true
-	await 2
+	$hit_box/CollisionShape2D.disabled = true
 	queue_free()
 
 
 func _on_range_body_entered(body: Node2D):
 	if body.is_in_group("player"):
 		playerBody = body
-		active = true
+		state = States.ACTIVATED
 		timer.start()
-
 
 func _on_range_body_exited(body: Node2D):
 	if body.is_in_group("player"):
 		playerBody = null
-		inactive = true
-		active = false
-		walking = false
-
+		if !is_dead and !is_take_damage:
+			state = States.INACTIVE
 
 func flip():
 	if velocity.x > 0:
@@ -132,11 +135,17 @@ func flip():
 
 func _on_timer_timeout() -> void:
 	if playerBody:
-		walking = true
+		state = States.WALK
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "hurt":
-		is_take_damage = false
 	if anim_name == "dead":
 		dead()
+	
+	if anim_name == "hurt":
+		is_take_damage = false
+		lock_animation = false
+		if playerBody:
+			state = States.WALK
+		else:
+			state = States.INACTIVE
