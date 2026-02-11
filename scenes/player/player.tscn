@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c3241u3anv0kc" path="res://Sprite Pack 8/Sprite Pack 8/2 - Tracy/Hurt (32 x 32).png" id="7_fm80t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7p2l"]
-size = Vector2(12, 20)
+size = Vector2(12, 19)
 
 [sub_resource type="Animation" id="Animation_ugbui"]
 length = 0.001
@@ -338,18 +338,21 @@ size = Vector2(14, 22)
 
 [node name="player" type="CharacterBody2D" unique_id=1172587264 groups=["player"]]
 script = ExtResource("1_8afob")
-jump_force = -400.0
+jump_force = -250.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1359779902]
 position = Vector2(0, 1)
-texture = ExtResource("7_fm80t")
+texture = ExtResource("3_qek5x")
+hframes = 5
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1651563640]
-position = Vector2(1, 7)
+position = Vector2(1, 6.5)
 shape = SubResource("RectangleShape2D_x7p2l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1069306531]
 libraries/ = SubResource("AnimationLibrary_8ydkj")
+autoplay = &"idle"
 speed_scale = 0.4
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=731885773]
