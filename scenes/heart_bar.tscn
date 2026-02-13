@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cubeh1u76wbb2"]
+
+[ext_resource type="Script" uid="uid://l3rqb1cv8t32" path="res://scenes/heart_bar.gd" id="1_otjmu"]
+
+[node name="heart_bar" type="HBoxContainer" unique_id=141789641]
+offset_right = 26.0
+offset_bottom = 10.0
+scale = Vector2(2, 2)
+theme_override_constants/separation = 1
+script = ExtResource("1_otjmu")

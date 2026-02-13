@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c4ecihcyw47id"]
+
+[ext_resource type="Texture2D" uid="uid://binebvuflkskw" path="res://Mini FX, Items & UI/Mini FX, Items & UI/Mini UI/Health_Indicator_Black_Outline (8 x 8).png" id="1_l0qp3"]
+[ext_resource type="Script" uid="uid://34gb1woosu20" path="res://scenes/heart_gui.gd" id="1_x0egl"]
+
+[node name="heart_gui" type="Panel" unique_id=923249292]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(8, 8)
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_x0egl")
+
+[node name="heart" type="Sprite2D" parent="." unique_id=1888909372]
+texture = ExtResource("1_l0qp3")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 8, 8)

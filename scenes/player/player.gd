@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal reload_scene
+signal health_changed
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export var speed: float = 100
@@ -19,15 +20,13 @@ var is_dead: bool = false
 var is_realoding: bool = false
 var state: States = States.IDLE
 var health: int = 3
-var max_health: int = 3
+@export var max_health: int = 3
 
 enum States {IDLE, WALKING, JUMPING, FALLING, HIT, ATTACKING, RELOADING}
-
 
 func _ready() -> void:
 	health = max_health
 	arrows = max_arrows
-
 func _physics_process(delta: float) -> void:
 	gravity_force(delta)
 	movement()
@@ -71,7 +70,7 @@ func attack():
 				arrow_instanciate()
 			else:
 				start_reloading()
-				
+
 
 func change_state():
 	if is_realoding:
@@ -99,8 +98,6 @@ func change_state():
 func start_reloading():
 	is_realoding = true
 	reload_cooldown.start()
-
-
 
 func change_animation():
 	var anim = ""
@@ -133,7 +130,7 @@ func take_damage(damage: int):
 	print(health)
 	if health < 0: 
 		emit_signal("reload_scene")
-
+	health_changed.emit(health)
 
 func flip_player():
 	if velocity.x < 0:
@@ -142,7 +139,6 @@ func flip_player():
 	elif velocity.x > 0:
 		$Sprite2D.flip_h = false
 		marker_2d.position = Vector2(16,9)
-
 
 func arrow_instanciate():
 	var dir = Vector2.RIGHT
@@ -164,7 +160,6 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		is_attacking = false
 	if anim_name == "hit":
 		is_tacking_damage = false
-
 
 func _on_reload_cooldown_timeout() -> void:
 	arrows = max_arrows

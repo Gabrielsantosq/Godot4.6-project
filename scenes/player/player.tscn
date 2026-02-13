@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://colr7ubvclvoq" path="res://Sprite Pack 8/Sprite Pack 8/2 - Tracy/Jump (32 x 32).png" id="5_h17s1"]
 [ext_resource type="Texture2D" uid="uid://7jbefgqcmc68" path="res://Sprite Pack 8/Sprite Pack 8/2 - Tracy/Falling (32 x 32).png" id="6_je7p5"]
 [ext_resource type="Texture2D" uid="uid://c3241u3anv0kc" path="res://Sprite Pack 8/Sprite Pack 8/2 - Tracy/Hurt (32 x 32).png" id="7_fm80t"]
+[ext_resource type="PackedScene" uid="uid://c772yl3ej7iii" path="res://scenes/player_areas/hurt_box.tscn" id="9_5gtgg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7p2l"]
 size = Vector2(12, 19)
@@ -333,12 +334,10 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0owmy"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0owmy"]
-size = Vector2(14, 22)
-
 [node name="player" type="CharacterBody2D" unique_id=1172587264 groups=["player"]]
 script = ExtResource("1_8afob")
 jump_force = -250.0
+max_health = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1359779902]
 position = Vector2(0, 1)
@@ -369,14 +368,8 @@ shape = SubResource("CircleShape2D_0owmy")
 wait_time = 0.5
 one_shot = true
 
-[node name="hurt_box" type="Area2D" parent="." unique_id=1868141078 groups=["hurt_box_player"]]
-visible = false
+[node name="hurt_box" parent="." unique_id=1676145823 instance=ExtResource("9_5gtgg")]
 position = Vector2(1, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_box" unique_id=126692969]
-position = Vector2(0, 7)
-shape = SubResource("RectangleShape2D_0owmy")
-debug_color = Color(0.95147854, 2.5027991e-06, 0.5658839, 0.41960785)
 
 [node name="reload_cooldown" type="Timer" parent="." unique_id=1445212025]
 one_shot = true

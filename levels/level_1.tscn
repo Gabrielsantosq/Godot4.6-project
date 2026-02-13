@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bekgyhkx6sr0g" path="res://Grassland.tscn" id="4_kx6l7"]
 [ext_resource type="PackedScene" uid="uid://crctqc4agook1" path="res://scenes/coins.tscn" id="5_n46q3"]
 [ext_resource type="PackedScene" uid="uid://caa0u38woucbh" path="res://scenes/enemy/enemy.tscn" id="6_btoec"]
+[ext_resource type="PackedScene" uid="uid://cubeh1u76wbb2" path="res://scenes/heart_bar.tscn" id="7_gwceb"]
 
 [node name="Level1" type="Node2D" unique_id=61020778]
 script = ExtResource("1_3sk1a")
@@ -32,3 +33,9 @@ position = Vector2(358, 200)
 
 [node name="enemy" parent="." unique_id=22923009 instance=ExtResource("6_btoec")]
 position = Vector2(223, 193)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=444672968]
+
+[node name="heart_bar" parent="CanvasLayer" unique_id=141789641 instance=ExtResource("7_gwceb")]
+
+[connection signal="health_changed" from="player" to="." method="_on_player_health_changed"]
