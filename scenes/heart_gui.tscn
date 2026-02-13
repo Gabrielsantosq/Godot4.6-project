@@ -13,5 +13,5 @@ script = ExtResource("1_x0egl")
 [node name="heart" type="Sprite2D" parent="." unique_id=1888909372]
 texture = ExtResource("1_l0qp3")
 centered = false
-region_enabled = true
+hframes = 2
 region_rect = Rect2(0, 0, 8, 8)

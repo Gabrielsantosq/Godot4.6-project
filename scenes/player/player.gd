@@ -4,7 +4,7 @@ signal reload_scene
 signal health_changed
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@export var speed: float = 100
+@export var speed: float = 120
 @export var jump_force: float = -200
 @onready var marker_2d: Marker2D = $Marker2D
 @onready var shoot_coldown: Timer = $shoot_coldown

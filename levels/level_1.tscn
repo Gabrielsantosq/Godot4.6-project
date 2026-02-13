@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://crctqc4agook1" path="res://scenes/coins.tscn" id="5_n46q3"]
 [ext_resource type="PackedScene" uid="uid://caa0u38woucbh" path="res://scenes/enemy/enemy.tscn" id="6_btoec"]
 [ext_resource type="PackedScene" uid="uid://cubeh1u76wbb2" path="res://scenes/heart_bar.tscn" id="7_gwceb"]
+[ext_resource type="AudioStream" uid="uid://bkpo804gnmva2" path="res://Casual Game Vol 2/Track 1 (Let's Go).wav" id="8_l53as"]
 
 [node name="Level1" type="Node2D" unique_id=61020778]
 script = ExtResource("1_3sk1a")
@@ -34,8 +35,16 @@ position = Vector2(358, 200)
 [node name="enemy" parent="." unique_id=22923009 instance=ExtResource("6_btoec")]
 position = Vector2(223, 193)
 
+[node name="enemy2" parent="." unique_id=310500332 instance=ExtResource("6_btoec")]
+position = Vector2(428, 191)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=444672968]
 
 [node name="heart_bar" parent="CanvasLayer" unique_id=141789641 instance=ExtResource("7_gwceb")]
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=553679885]
+stream = ExtResource("8_l53as")
+autoplay = true
+
 [connection signal="health_changed" from="player" to="." method="_on_player_health_changed"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

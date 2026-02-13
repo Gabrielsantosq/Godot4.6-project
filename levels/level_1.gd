@@ -4,10 +4,10 @@ extends Node2D
 
 
 func _ready() -> void:
-	heart_bar.setMaxHearts(player.health)
-	
+	heart_bar.setMaxHearts(player.max_health)
+	heart_bar.updateHearts(player.health)
+	player.health_changed.connect(heart_bar.updateHearts)
 
 
-func _on_player_health_changed() -> void:
-	print(player.health)
-	heart_bar.setMaxHearts()
+func _on_audio_stream_player_finished() -> void:
+	$AudioStreamPlayer.play()
