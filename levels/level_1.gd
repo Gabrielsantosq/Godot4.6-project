@@ -8,6 +8,9 @@ func _ready() -> void:
 	heart_bar.updateHearts(player.health)
 	player.health_changed.connect(heart_bar.updateHearts)
 
-
 func _on_audio_stream_player_finished() -> void:
 	$AudioStreamPlayer.play()
+
+
+func _on_player_reload_scene() -> void:
+	get_tree().reload_current_scene()

@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://7jbefgqcmc68" path="res://Sprite Pack 8/Sprite Pack 8/2 - Tracy/Falling (32 x 32).png" id="6_je7p5"]
 [ext_resource type="Texture2D" uid="uid://c3241u3anv0kc" path="res://Sprite Pack 8/Sprite Pack 8/2 - Tracy/Hurt (32 x 32).png" id="7_fm80t"]
 [ext_resource type="PackedScene" uid="uid://c772yl3ej7iii" path="res://scenes/player_areas/hurt_box.tscn" id="9_5gtgg"]
+[ext_resource type="AudioStream" uid="uid://dh8q8bpc4hyeb" path="res://Mini FX, Items & UI/Mini FX, Items & UI/Effects/jump.wav" id="10_h17s1"]
+[ext_resource type="AudioStream" uid="uid://cjkxd6u2vsqix" path="res://Mini FX, Items & UI/Mini FX, Items & UI/Effects/tap.wav" id="11_je7p5"]
+[ext_resource type="AudioStream" uid="uid://cvfh7w8ujbawy" path="res://Mini FX, Items & UI/Mini FX, Items & UI/Effects/hurt.wav" id="12_fm80t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x7p2l"]
 size = Vector2(12, 19)
@@ -356,7 +359,6 @@ speed_scale = 0.4
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=731885773]
 zoom = Vector2(0.5, 0.5)
-position_smoothing_enabled = true
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1731498838]
 position = Vector2(16, 9)
@@ -373,6 +375,15 @@ position = Vector2(1, 0)
 
 [node name="reload_cooldown" type="Timer" parent="." unique_id=1445212025]
 one_shot = true
+
+[node name="jump" type="AudioStreamPlayer2D" parent="." unique_id=1250772418]
+stream = ExtResource("10_h17s1")
+
+[node name="shoot" type="AudioStreamPlayer2D" parent="." unique_id=294939964]
+stream = ExtResource("11_je7p5")
+
+[node name="hurt" type="AudioStreamPlayer2D" parent="." unique_id=1120611605]
+stream = ExtResource("12_fm80t")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="reload_cooldown" to="." method="_on_reload_cooldown_timeout"]

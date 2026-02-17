@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cc0cj3e1dr7f6"
+path="res://.godot/imported/coin.wav-f3f266c82e3d8c6e9c249199eb730eb4.sample"
+
+[deps]
+
+source_file="res://Mini FX, Items & UI/Mini FX, Items & UI/Effects/coin.wav"
+dest_files=["res://.godot/imported/coin.wav-f3f266c82e3d8c6e9c249199eb730eb4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

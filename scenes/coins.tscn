@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bjymfyge44ylx" path="res://coins.gd" id="1_o4aag"]
 [ext_resource type="Texture2D" uid="uid://fa0vl65gandu" path="res://Mini FX, Items & UI/Mini FX, Items & UI/Common Pick-ups/Coin (16 x 16).png" id="2_fxnh4"]
 [ext_resource type="Texture2D" uid="uid://cngpidnlsrq6" path="res://Mini FX, Items & UI/Mini FX, Items & UI/Effects/Yellow_Sparkle (16 x 16).png" id="2_s1asw"]
+[ext_resource type="AudioStream" uid="uid://cc0cj3e1dr7f6" path="res://Mini FX, Items & UI/Mini FX, Items & UI/Effects/coin.wav" id="4_s1asw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u3akd"]
 atlas = ExtResource("2_s1asw")
@@ -84,6 +85,9 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=612355177]
 shape = SubResource("CircleShape2D_oestc")
+
+[node name="collect" type="AudioStreamPlayer2D" parent="." unique_id=941082014]
+stream = ExtResource("4_s1asw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

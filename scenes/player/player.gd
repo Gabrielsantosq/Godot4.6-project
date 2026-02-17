@@ -58,6 +58,7 @@ func jumping():
 		
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = jump_force
+		$jump.play()
 
 func attack():
 	if is_realoding:
@@ -68,6 +69,7 @@ func attack():
 			if arrows > 0:
 				is_attacking = true
 				arrow_instanciate()
+				$shoot.play()
 			else:
 				start_reloading()
 
@@ -121,14 +123,14 @@ func change_animation():
 	if animation_player.current_animation != anim:
 		animation_player.play(anim)
 
-
 func take_damage(damage: int):
 	health -= damage
 	is_tacking_damage = true
+	$hurt.play()
 	$CollisionShape2D.disabled = true
 	print($CollisionShape2D.disabled)
 	print(health)
-	if health < 0: 
+	if health <= 0: 
 		emit_signal("reload_scene")
 	health_changed.emit(health)
 

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bcr0iikdst8cf"
+path="res://.godot/imported/explosion.wav-fc2a13937a899a80d7bce3ea87d740da.sample"
+
+[deps]
+
+source_file="res://Mini FX, Items & UI/Mini FX, Items & UI/Effects/explosion.wav"
+dest_files=["res://.godot/imported/explosion.wav-fc2a13937a899a80d7bce3ea87d740da.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

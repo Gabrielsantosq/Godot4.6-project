@@ -25,7 +25,7 @@ enum States {INACTIVE,ACTIVATED,WALK,TAKEDAMAGE, DEAD}
 
 func _ready() -> void:
 	health = max_health
-
+	$Sprite2D2.visible = false
 
 func _physics_process(delta: float) -> void:
 	gravity_force(delta)
@@ -119,12 +119,14 @@ func _on_range_body_entered(body: Node2D):
 		playerBody = body
 		state = States.ACTIVATED
 		timer.start()
+		$Sprite2D2.visible = true
 
 func _on_range_body_exited(body: Node2D):
 	if body.is_in_group("player"):
 		playerBody = null
 		if !is_dead and !is_take_damage:
 			state = States.INACTIVE
+		$Sprite2D2.visible = false
 
 func flip():
 	if velocity.x > 0:
@@ -136,6 +138,7 @@ func flip():
 func _on_timer_timeout() -> void:
 	if playerBody:
 		state = States.WALK
+		$Sprite2D2.visible = false
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

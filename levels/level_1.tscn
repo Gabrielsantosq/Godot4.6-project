@@ -47,4 +47,5 @@ stream = ExtResource("8_l53as")
 autoplay = true
 
 [connection signal="health_changed" from="player" to="." method="_on_player_health_changed"]
+[connection signal="reload_scene" from="player" to="." method="_on_player_reload_scene"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
