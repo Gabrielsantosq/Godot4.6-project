@@ -17,9 +17,7 @@ var lock_animation: bool = false
 var max_health: int = 6
 var health: int 
 
-
 var state: States = States.INACTIVE
-
 
 enum States {INACTIVE,ACTIVATED,WALK,TAKEDAMAGE, DEAD}
 
@@ -34,7 +32,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	change_anim()
 	flip()
-	
 
 func move_to_player():
 	if is_dead:
@@ -53,7 +50,6 @@ func gravity_force(delta):
 	else:
 		if velocity.y > 0:
 			velocity.y = 0
-
 
 func change_state():
 	if is_dead:
@@ -76,7 +72,6 @@ func change_state():
 func change_anim():
 	if lock_animation:
 		return
-
 
 	var anim = ""
 	
@@ -113,7 +108,6 @@ func dead():
 	$hit_box/CollisionShape2D.disabled = true
 	queue_free()
 
-
 func _on_range_body_entered(body: Node2D):
 	if body.is_in_group("player"):
 		playerBody = body
@@ -134,12 +128,10 @@ func flip():
 	elif velocity.x < 0:
 		$Sprite2D.flip_h = true
 
-
 func _on_timer_timeout() -> void:
 	if playerBody:
 		state = States.WALK
 		$Sprite2D2.visible = false
-
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "dead":

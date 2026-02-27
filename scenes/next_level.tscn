@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b33rl3ccafxjn"]
+
+[ext_resource type="Script" uid="uid://n0q07v0fu1b2" path="res://next_level.gd" id="1_rf0ph"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sd4vo"]
+
+[node name="nextLevel" type="Area2D" unique_id=1603984970]
+script = ExtResource("1_rf0ph")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1465270613]
+shape = SubResource("CircleShape2D_sd4vo")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

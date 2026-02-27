@@ -128,7 +128,6 @@ func take_damage(damage: int):
 	is_tacking_damage = true
 	$hurt.play()
 	$CollisionShape2D.disabled = true
-	print($CollisionShape2D.disabled)
 	print(health)
 	if health <= 0: 
 		emit_signal("reload_scene")
@@ -162,6 +161,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		is_attacking = false
 	if anim_name == "hit":
 		is_tacking_damage = false
+		$CollisionShape2D.disabled = false
 
 func _on_reload_cooldown_timeout() -> void:
 	arrows = max_arrows
