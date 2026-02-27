@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dhd66fjrue7q3"]
+
+[ext_resource type="Texture2D" uid="uid://ytittpjgg6gl" path="res://Mini FX, Items & UI/Mini FX, Items & UI/Common Pick-ups/Treasure_Chest (32 x 16).png" id="1_75h8e"]
+[ext_resource type="Script" uid="uid://cgh22g2hvotpe" path="res://scenes/treasure_chest.gd" id="1_ybsko"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybsko"]
+atlas = ExtResource("1_75h8e")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lyqs"]
+atlas = ExtResource("1_75h8e")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1w43"]
+atlas = ExtResource("1_75h8e")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tymi3"]
+atlas = ExtResource("1_75h8e")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tymi3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybsko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lyqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1w43")
+}],
+"loop": false,
+"name": &"collect",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tymi3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kb1f1"]
+size = Vector2(20, 14)
+
+[node name="treasure_chest" type="Area2D" unique_id=1951864694]
+script = ExtResource("1_ybsko")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1490924088]
+sprite_frames = SubResource("SpriteFrames_tymi3")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1048933046]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_kb1f1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

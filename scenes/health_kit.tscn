@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d0s1ux32wq750"]
+
+[ext_resource type="Script" uid="uid://5rvsfsc0juev" path="res://scenes/health_kit.gd" id="1_ilurq"]
+[ext_resource type="Texture2D" uid="uid://n03ci77iq2k7" path="res://Mini FX, Items & UI/Mini FX, Items & UI/Common Pick-ups/Health_Kit (16 x 16).png" id="1_nskbh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilurq"]
+size = Vector2(15, 13)
+
+[node name="health_kit" type="Area2D" unique_id=1439470468]
+script = ExtResource("1_ilurq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1505119015]
+texture = ExtResource("1_nskbh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=301424459]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_ilurq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

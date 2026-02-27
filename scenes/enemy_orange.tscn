@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://7evu643xjowe"]
+
+[ext_resource type="Texture2D" uid="uid://ddg3ma0d7q0h1" path="res://enemy_assets/4 - Orange/Standing (32 x 32).png" id="1_pfx61"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdnjc"]
+size = Vector2(20, 17)
+
+[node name="enemy_orange" type="CharacterBody2D" unique_id=171507953]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1891027410]
+texture = ExtResource("1_pfx61")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=630212162]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_fdnjc")
