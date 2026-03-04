@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://caa0u38woucbh"]
 
-[ext_resource type="Texture2D" uid="uid://bu6n5is5xcxhn" path="res://enemy_assets/3 - Skeleton/Standing_Idle (32 x 32).png" id="1_4a83h"]
-[ext_resource type="Texture2D" uid="uid://bqk5c7a0vufx2" path="res://enemy_assets/3 - Skeleton/Hurt (32 x 32).png" id="1_a3pup"]
+[ext_resource type="Texture2D" uid="uid://bu6n5is5xcxhn" path="res://UI/enemy_assets/3 - Skeleton/Standing_Idle (32 x 32).png" id="1_4a83h"]
+[ext_resource type="Texture2D" uid="uid://bqk5c7a0vufx2" path="res://UI/enemy_assets/3 - Skeleton/Hurt (32 x 32).png" id="1_a3pup"]
 [ext_resource type="Script" uid="uid://dxinfstwlhh7a" path="res://scenes/enemy/enemy.gd" id="1_gl05p"]
-[ext_resource type="Texture2D" uid="uid://bwp5rw5m30e8s" path="res://enemy_assets/3 - Skeleton/Limping_Movement (32 x 32).png" id="1_tjssy"]
-[ext_resource type="Texture2D" uid="uid://dsb0ib5wd2psk" path="res://enemy_assets/3 - Skeleton/Crumbling_Into_Bone_Pile (32 x 32).png" id="2_nbhyu"]
-[ext_resource type="Texture2D" uid="uid://5xyd0xph1srl" path="res://enemy_assets/3 - Skeleton/Inactive (32 x 32).png" id="4_gl05p"]
+[ext_resource type="Texture2D" uid="uid://bwp5rw5m30e8s" path="res://UI/enemy_assets/3 - Skeleton/Limping_Movement (32 x 32).png" id="1_tjssy"]
+[ext_resource type="Texture2D" uid="uid://dsb0ib5wd2psk" path="res://UI/enemy_assets/3 - Skeleton/Crumbling_Into_Bone_Pile (32 x 32).png" id="2_nbhyu"]
+[ext_resource type="Texture2D" uid="uid://5xyd0xph1srl" path="res://UI/enemy_assets/3 - Skeleton/Inactive (32 x 32).png" id="4_gl05p"]
 [ext_resource type="PackedScene" uid="uid://cve1uldldc1bh" path="res://scenes/hit_box.tscn" id="6_cwlon"]
-[ext_resource type="Texture2D" uid="uid://boxnhhdpbn7kb" path="res://Mini FX, Items & UI/Mini FX, Items & UI/Mini UI/Speech_Emotes (16 x 16).png" id="8_13gj6"]
+[ext_resource type="Texture2D" uid="uid://boxnhhdpbn7kb" path="res://UI/Mini FX, Items & UI/Mini FX, Items & UI/Mini UI/Speech_Emotes (16 x 16).png" id="8_13gj6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3pup"]
 size = Vector2(16, 22)

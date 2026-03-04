@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bkpo804gnmva2"
+path="res://.godot/imported/Track 1 (Let's Go).wav-530f39208ce9e33ddef624adcc4ccfe6.sample"
+
+[deps]
+
+source_file="res://UI/Casual Game Vol 2/Track 1 (Let's Go).wav"
+dest_files=["res://.godot/imported/Track 1 (Let's Go).wav-530f39208ce9e33ddef624adcc4ccfe6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

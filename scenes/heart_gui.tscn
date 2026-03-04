@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c4ecihcyw47id"]
 
-[ext_resource type="Texture2D" uid="uid://binebvuflkskw" path="res://Mini FX, Items & UI/Mini FX, Items & UI/Mini UI/Health_Indicator_Black_Outline (8 x 8).png" id="1_l0qp3"]
+[ext_resource type="Texture2D" uid="uid://binebvuflkskw" path="res://UI/Mini FX, Items & UI/Mini FX, Items & UI/Mini UI/Health_Indicator_Black_Outline (8 x 8).png" id="1_l0qp3"]
 [ext_resource type="Script" uid="uid://34gb1woosu20" path="res://scenes/heart_gui.gd" id="1_x0egl"]
 
 [node name="heart_gui" type="Panel" unique_id=923249292]

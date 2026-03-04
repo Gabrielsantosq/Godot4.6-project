@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://crctqc4agook1" path="res://scenes/coins.tscn" id="5_hbb88"]
 [ext_resource type="PackedScene" uid="uid://caa0u38woucbh" path="res://scenes/enemy/enemy.tscn" id="6_wcjpl"]
 [ext_resource type="PackedScene" uid="uid://cubeh1u76wbb2" path="res://scenes/heart_bar.tscn" id="7_5orea"]
-[ext_resource type="AudioStream" uid="uid://bkpo804gnmva2" path="res://Casual Game Vol 2/Track 1 (Let's Go).wav" id="8_0ourt"]
+[ext_resource type="AudioStream" uid="uid://bkpo804gnmva2" path="res://UI/Casual Game Vol 2/Track 1 (Let's Go).wav" id="8_0ourt"]
 [ext_resource type="PackedScene" uid="uid://b33rl3ccafxjn" path="res://scenes/next_level.tscn" id="9_at1ld"]
 
 [node name="Level2" type="Node2D" unique_id=61020778]

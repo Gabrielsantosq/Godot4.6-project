@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dhd66fjrue7q3"]
 
-[ext_resource type="Texture2D" uid="uid://ytittpjgg6gl" path="res://Mini FX, Items & UI/Mini FX, Items & UI/Common Pick-ups/Treasure_Chest (32 x 16).png" id="1_75h8e"]
+[ext_resource type="Texture2D" uid="uid://ytittpjgg6gl" path="res://UI/Mini FX, Items & UI/Mini FX, Items & UI/Common Pick-ups/Treasure_Chest (32 x 16).png" id="1_75h8e"]
 [ext_resource type="Script" uid="uid://cgh22g2hvotpe" path="res://scenes/treasure_chest.gd" id="1_ybsko"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ybsko"]

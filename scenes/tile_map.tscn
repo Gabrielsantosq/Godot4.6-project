@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b8k380wmj0r1b"]
 
-[ext_resource type="Texture2D" uid="uid://bf5bntldnb2hu" path="res://Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_jx7lj"]
-[ext_resource type="Texture2D" uid="uid://cnahqsgxbwmoh" path="res://Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Grassland_entities (16 x 16).png" id="2_dohrl"]
-[ext_resource type="Texture2D" uid="uid://d2c0n36llk2t5" path="res://Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Extra_plants (16 x 16).png" id="3_f6fy2"]
+[ext_resource type="Texture2D" uid="uid://bf5bntldnb2hu" path="res://UI/Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Terrain (16 x 16).png" id="1_jx7lj"]
+[ext_resource type="Texture2D" uid="uid://cnahqsgxbwmoh" path="res://UI/Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Grassland_entities (16 x 16).png" id="2_dohrl"]
+[ext_resource type="Texture2D" uid="uid://d2c0n36llk2t5" path="res://UI/Seasonal Tilesets/Seasonal Tilesets/1 - Grassland/Extra_plants (16 x 16).png" id="3_f6fy2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kvphj"]
 texture = ExtResource("1_jx7lj")
